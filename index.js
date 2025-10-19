@@ -20,7 +20,7 @@ app.get('/me', async(req, res) => {
 
     try{
         const response = await axios.get('https://catfact.ninja/fact', {
-            timeout: 7000
+            timeout: 10000
         });
 
         catFact = response.data.fact;
