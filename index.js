@@ -15,16 +15,16 @@ app.get('/', (req, res) => {
     res.status(200).send("Welcome to my backend");
 });
 
-app.get('/me', async(req, res) => {
+app.get('/me', async (req, res) => {
     let catFact = '';
 
-    try{
+    try {
         const response = await axios.get('https://catfact.ninja/fact', {
             timeout: 10000
         });
 
         catFact = response.data.fact;
-    } catch (error){
+    } catch (error) {
         console.error("Error fetching cat fact", error.message)
         catFact = "Could not retrieve cat fact at this time"
     }
@@ -32,9 +32,9 @@ app.get('/me', async(req, res) => {
     const currentTimestamp = new Date().toISOString();
 
     const userData = {
-        email: process.env.EMAIL,
-        name: process.env.NAME,
-        stack: process.env.STACK
+        email: process.env.MY_EMAIL,
+        name: process.env.MY_NAME,
+        stack: process.env.MY_STACK
     }
 
     const responseBody = {
